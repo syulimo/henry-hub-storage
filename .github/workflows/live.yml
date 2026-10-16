@@ -1,0 +1,47 @@
+name: Live record
+# Monday and Tuesday: log the forecast for the week that just ended, before the EIA
+# release (Thursday 10:30 ET, earlier in holiday weeks). Thursday and Friday: score it.
+# Only forecasts/live_log.csv is committed; data/ stays as the README results used it.
+on:
+  schedule:
+    - cron: "0 15 * * 1,2"
+    - cron: "0 18 * * 4,5"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: forecast or score
+        required: true
+        default: forecast
+permissions:
+  contents: write
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Fetch latest data
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+        run: python fetch_data.py
+      - name: Run
+        run: |
+          MODE="${{ github.event.inputs.mode }}"
+          if [ -z "$MODE" ]; then
+            if [ "${{ github.event.schedule }}" = "0 15 * * 1,2" ]; then MODE=forecast; else MODE=score; fi
+          fi
+          python live.py "$MODE"
+      - name: Commit the log
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add forecasts/live_log.csv 2>/dev/null || true
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "Live record update $(date -u +%Y-%m-%dT%H:%MZ)"
+          git checkout -- data
+          git pull --rebase
+          git push
+
