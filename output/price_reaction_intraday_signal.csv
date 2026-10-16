@@ -1,0 +1,5 @@
+subset,reaction_beta_pct_per_10bcf,reaction_t,reaction_r2,weeks,gross_mean_bp,gross_t,net_mean_bp,net_t,hit_rate,perfect_sign_mean_bp
+all,-0.575,-4.318,0.146,111,23.616,1.546,13.882,0.908,0.577,52.982
+Nov to Mar weeks,,,,36,48.281,1.723,40.085,1.429,0.667,47.877
+Apr to Oct weeks,,,,75,11.777,0.649,1.305,0.072,0.533,55.432
+|gap| > 5 Bcf,,,,71,47.337,2.517,37.829,2.009,0.606,35.78

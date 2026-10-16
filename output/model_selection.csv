@@ -1,0 +1,18 @@
+variant,weeks,MAE,MAE_Nov_Mar,MAE_Apr_Oct,RMSE,MAE_2022_2023,MAE_2024_2026
+frozen full model,237,10.21,13.16,8.5,14.05,11.6,9.16
+v1 (linear degree days only),237,16.56,18.27,15.56,20.99,16.48,16.61
+weather only (no power burn),237,12.43,14.67,11.12,16.33,13.24,11.81
+without squared degree days,237,10.53,13.89,8.58,14.34,12.2,9.27
+without last week's degree days,237,11.77,14.8,10.01,16.16,14.05,10.05
+without last week's change,237,12.97,16.43,10.95,17.38,15.3,11.2
+power burn without CDD terms,237,10.18,13.78,8.09,14.28,11.65,9.06
+utility-gas-weighted HDD,237,10.58,13.84,8.69,14.81,12.2,9.36
+plus coldest day of the week,237,10.19,13.0,8.56,13.98,11.5,9.2
+plus days with HDD of 35 or more,237,10.17,13.14,8.44,14.03,11.59,9.09
+plus Texas freeze degree days,237,10.24,13.27,8.48,14.1,11.62,9.2
+"plus Texas freeze, this week and last",237,10.12,13.25,8.3,14.14,11.48,9.09
+plus Appalachia freeze degree days,237,10.24,13.32,8.46,14.08,11.76,9.1
+plus both freeze proxies,237,10.26,13.42,8.44,14.13,11.71,9.17
+training window 104 weeks,237,10.61,13.61,8.87,14.36,12.81,8.95
+training window 260 weeks,133,9.36,12.19,7.97,12.36,,9.36
+Friday-to-Thursday weeks,237,11.03,15.03,8.71,13.97,11.34,10.8

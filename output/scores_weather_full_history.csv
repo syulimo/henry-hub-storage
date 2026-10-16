@@ -1,0 +1,4 @@
+,MAE_bcf,RMSE_bcf,hit_rate_vs_avg5
+weather,13.13,16.95,0.84
+naive,34.94,52.24,0.64
+avg5,30.24,44.54,

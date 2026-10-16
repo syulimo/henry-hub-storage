@@ -1,0 +1,8 @@
+subset,weeks,share_in_model_direction,p_two_sided
+all,231,0.576,0.0251
+Nov to Mar,90,0.633,0.0149
+Apr to Oct,141,0.539,0.3998
+|gap| > 3 Bcf,189,0.603,0.0056
+|gap| > 5 Bcf,160,0.619,0.0033
+|gap| > 8 Bcf,111,0.595,0.0572
+|gap| > 12 Bcf,71,0.634,0.0319

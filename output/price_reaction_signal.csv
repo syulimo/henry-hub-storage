@@ -1,0 +1,5 @@
+subset,weeks,pnl_gross_mean_bp,pnl_gross_t,pnl_gross_sharpe_ann,pnl_net_mean_bp,pnl_net_t,pnl_net_sharpe_ann,hit_rate,perfect_sign_mean_bp
+all,213,44.758,1.545,0.763,35.174,1.213,0.6,0.507,117.793
+Nov to Mar weeks,82,80.366,1.723,1.372,70.848,1.519,1.209,0.598,137.258
+Apr to Oct weeks,131,22.469,0.608,0.383,12.845,0.347,0.219,0.45,105.609
+|gap| > 5 Bcf,148,65.97,1.912,1.133,56.743,1.644,0.975,0.534,125.371

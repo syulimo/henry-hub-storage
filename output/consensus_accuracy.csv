@@ -1,0 +1,7 @@
+,weeks,MAE_bcf,median_AE_bcf,RMSE_bcf
+full,231.0,10.39,7.4,14.28
+weather,231.0,12.54,9.35,16.43
+consensus_bcf,231.0,8.04,5.0,14.08
+avg5,231.0,30.9,21.0,45.03
+consensus_bcf_blend_weeks,179.0,7.28,5.0,10.17
+blend_blend_weeks,179.0,7.27,5.49,9.57
