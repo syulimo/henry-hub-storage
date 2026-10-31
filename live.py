@@ -120,6 +120,11 @@ def score():
         log.loc[todo, "consensus_bcf"] = log.loc[todo, "week_ending"].map(cons)
     except Exception as e:  # source unavailable: leave blank, retried next run
         print(f"consensus not updated: {e}")
+    manual = DATA / "consensus_live_manual.csv"
+    if manual.exists():  # hand-entered consensus with a cited source, used only where the fetch left a blank
+        m = pd.read_csv(manual, parse_dates=["week_ending"]).set_index("week_ending")["consensus_bcf"]
+        todo = log["consensus_bcf"].isna()
+        log.loc[todo, "consensus_bcf"] = log.loc[todo, "week_ending"].map(m)
     log.round({c: 2 for c in NUMERIC}).to_csv(LOG, index=False, date_format="%Y-%m-%d")
 
     done = log.dropna(subset=["actual_bcf"])
